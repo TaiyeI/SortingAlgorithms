@@ -1,11 +1,10 @@
 Dataset = [3,2,7,3,8,9,4,5]
-def bubble(Dataset):
+def BubbleSort(Dataset):
     unsorted = True
     x = len(Dataset)-1
     while unsorted == True:
         unsorted = False
         for i in range (0,x):
-            print(i)
             if Dataset[i] > Dataset[i+1]:
                 unsorted = True
                 temp = Dataset[i]
@@ -13,7 +12,7 @@ def bubble(Dataset):
                 Dataset[i+1] = temp
                 print(Dataset)
 
-def insertionsort(Dataset):
+def InsertionSort(Dataset):
     length = len(Dataset)
     for j in range (0,length):
         current = Dataset[j]
@@ -31,31 +30,24 @@ def MergeSort(Dataset):
         return Dataset
     mid = len(Dataset)//2
     y = MergeSort(Dataset[:mid])
-    #print(y)
     z = MergeSort(Dataset[mid:])
     l = 0
     j = 0
     while l < len(y) and j < len(z):
         if y[l]>z[j]:
             result.append(z[j])
-            #print(l)
             j += 1
         else:
             result.append(y[l])
-            l += 1
-            #print(j)
-    print(result)        
+            l += 1      
     result += y[l:]
-    print(result)
     result += z[j:]
-    print(result)
     return result
 results = MergeSort(Dataset)
-#print(results)
+print(results)
 
 
-
-MergeSort(Dataset)
+BubbleSort(Dataset)
 
 
 
